@@ -15,7 +15,7 @@
           <div className="w-2/3 pr-4 ml-48 border-2 rounded-2xl border-gray-700">
             <Posts />
           </div>
-          <div className="w-1/3 pl-4 rounded-2xl border-gray-700">
+          <div className="w-1/3 pl-4 rounded-2xl border-2 mx-8 border-gray-700">
             <FriendsList />
           </div>
         </div>
