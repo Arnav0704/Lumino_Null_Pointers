@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-color: rgb(0,0,0);
+    /* filter: blur(8px);
+    -webkit-filter: blur(8px);
+    height: 100%; */
+}
