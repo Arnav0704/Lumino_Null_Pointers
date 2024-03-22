@@ -1,12 +1,20 @@
-
+import ProfilePage from "./pages/Profile"
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 function App() {
 
   return (
     <>
-      <div className="bg-red-700">Hello World</div>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={<ProfilePage />}
+          />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
 
-export default App
+export default App;
