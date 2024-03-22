@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
-import ProfilePic from '../assets/profile-image.png'
+import ProfilePic from '../assets/profile-image.png';
+import Posts from "../components/posts";
 import { LuCopy } from "react-icons/lu";
 import { FaWallet } from "react-icons/fa6";
 
@@ -32,8 +33,8 @@ const ProfilePage = () => {
   
   
     return (
-      <div className="flex justify-center bg-gray-900 min-h-screen py-10">
-        <div className="bg-gray-800 w-[60%] text-white rounded-lg shadow-lg p-8 max-w-xl">
+      <div className="flex justify-center bg-zinc-900 min-h-screen py-10">
+        <div className="bg-zinc-800 w-[60%] text-white border-1 border-white rounded-lg shadow-lg p-8 max-w-xl">
           <div className="flex items-center">
             <img
               className="w-20 h-20 rounded-full mr-4"
@@ -42,7 +43,7 @@ const ProfilePage = () => {
             />
             <div>
               <h2 className="text-xl font-bold">{userProfile.name}</h2>
-              <p className="text-sm text-gray-400">@{userProfile.username}</p>
+              <p className="text-sm text-zinc-400">@{userProfile.username}</p>
               <div className="flex mt-2 w-full items-center">
                 <p className="mr-4">
                     <span className="text-xl font-bold">{userProfile.following.length}</span> Following
@@ -55,8 +56,8 @@ const ProfilePage = () => {
           </div>
           <div className="mt-4 flex flex-col">
             
-            <p className="text-md text-gray-300">{userProfile.bio}</p>
-            <p className="font-bold"><span className="mr-1" role="img" aria-label="lightning">⚡</span>{userProfile.streak} days streak</p>
+            <p className="text-md text-zinc-300">{userProfile.bio}</p>
+            <p className="font-bold mt-2"><span className="mr-1" role="img" aria-label="lightning">⚡</span>{userProfile.streak} days streak</p>
           </div>
           <div className="mt-8">
             <div>
@@ -75,7 +76,7 @@ const ProfilePage = () => {
             ) : (
               <div className="mt-4">
                 <h3 className="text-lg font-bold">Connect Wallet:</h3>
-                <button className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-1 px-3 rounded">
+                <button className="bg-zinc-700 hover:bg-zinc-600 text-white font-bold py-1 px-3 rounded">
                   <FaWallet />
                 </button>
               </div>
@@ -83,20 +84,28 @@ const ProfilePage = () => {
             <div className="mt-4">
               <h3 className="text-lg font-bold">Referral Code:</h3>
               <div className="flex items-center">
-                <div className="bg-gray-700 rounded flex justify-center">
+                <div className="bg-zinc-700 rounded flex justify-center">
                   <input
                     ref={referralCodeRef}
-                    className="w-36 bg-gray-700 text-white rounded mr-2 px-2 py-1 outline-none"
+                    className="w-36 bg-zinc-700 text-white rounded mr-2 px-2 py-1 outline-none"
                     type="text"
                     defaultValue={userProfile.referralCode}
                     readOnly
                   />
                   <button
-                    className="bg-gray-700 hover:bg-gray-600 text-white font-bold p-1 rounded"
+                    className="bg-zinc-700 hover:bg-zinc-600 text-white font-bold p-1 rounded"
                     onClick={copyReferralCode}
                     aria-label="Copy Referral Code">
                     <LuCopy />
                   </button>
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 ">
+              <h3 className="text-lg font-bold ">Posts:</h3>
+              <div className="flex bg-black min-h-screen rounded-xl mt-16">
+                <div className=" overflow-hidden border-2 rounded-2xl border-zinc-700 shadow-lg shadow-zinc-600">
+                  <Posts />
                 </div>
               </div>
             </div>
