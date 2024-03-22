@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-black py-4 px-8 flex items-center justify-between border-solid border-gray-600 border-b-2 filter-none">
+    <nav className="bg-black py-4 px-8 flex items-center justify-between border-solid border-gray-600 border-b-2 shadow-zinc-600 shadow-lg">
       <div className="flex items-center">
         <span className="text-white text-lg font-semibold">Your Logo</span>
       </div>
@@ -57,7 +57,7 @@ const Navbar = () => {
         {/* Create Post */}
         <Button
           variant="outline"
-          className="text-white flex items-center px-2 py-2 rounded-xl mx-2"
+          className="text-white flex items-center px-4 py-2 rounded-xl mx-2"
         >
           + Create Post
         </Button>
