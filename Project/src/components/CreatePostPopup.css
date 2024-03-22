@@ -1,0 +1,19 @@
+.create-post-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(49, 47, 47);
+    border-radius: 25px;
+  }
+  
+  .create-post-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(61, 61, 61, 0.5);
+    backdrop-filter: blur(2px);
+  }
