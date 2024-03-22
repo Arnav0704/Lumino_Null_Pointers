@@ -5,6 +5,7 @@ import './CreatePostPopup.css';
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
 
+
 const CreatePostPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,8 +28,8 @@ const CreatePostPopup = () => {
         className="create-post-modal"
         overlayClassName="create-post-overlay"
       >
-        <div className="bg-zinc-900 text-white p-4 rounded-xl ">
-          <button className="bg-transparent rounded" onClick={closeModal}>
+        <div className="bg-zinc-700 text-white p-4 pt-8 rounded-xl ">
+          <button className="bg-transparent rounded absolute top-4 right-3" onClick={closeModal}>
           <MdOutlineClose />
           </button>
           <CreatePost/>
