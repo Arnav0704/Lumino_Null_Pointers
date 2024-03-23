@@ -45,6 +45,8 @@ const Posts = () => {
         },
       ],
       isSellable: false,
+      price: "$10",
+      buyOptions: ["Option 1", "Option 2", "Option 3"],
     },
     {
       postId: 2,
@@ -62,6 +64,8 @@ const Posts = () => {
         },
       ],
       isSellable: true,
+      price: "$15",
+      buyOptions: ["Option A", "Option B", "Option C"],
     },
   ];
   const [likedPosts, setLikedPosts] = useState([]);
@@ -143,9 +147,25 @@ const Posts = () => {
                   <CiShare2 />
                 </div>
                 {post.isSellable && (
-                  <div className="flex gap-2 items-center text-gray-400">
-                    <CiShoppingCart />
-                  </div>
+                  <HoverCard>
+                    <HoverCardTrigger>
+                    <div className='flex gap-4'>
+                      <div className="flex gap-2 items-center text-gray-400 cursor-pointer">
+                        <CiShoppingCart className="cursor-pointer" size={20} />
+                      </div>
+                        <HoverCardContent>
+                          <Card>
+                            <CardHeader>
+                              <CardTitle>Price: {post.price}</CardTitle>
+                            </CardHeader>
+                            <CardFooter>
+                              <Button>Buy Now</Button>
+                            </CardFooter>
+                          </Card>
+                        </HoverCardContent>
+                      </div>
+                    </HoverCardTrigger>
+                  </HoverCard>
                 )}
               </div>
             </div>

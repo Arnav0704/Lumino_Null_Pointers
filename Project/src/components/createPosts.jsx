@@ -46,7 +46,7 @@ const CreatePost = () => {
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
               <Label htmlFor="title" className="text-white">TITLE</Label>
-              <Input id="title" defaultValue="title" type="text" className="bg-black"/>
+              <Input id="title" type="text" className="bg-black"/>
 
         </div>
         <div className="mb-4">
@@ -75,8 +75,8 @@ const CreatePost = () => {
               placeholder="Enter Price"
               value={price}
               onChange={handlePriceChange}
-              step="0.01"
-              min="0"
+              step="1"
+              min="1"
               required
             />
           )}

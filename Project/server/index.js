@@ -15,8 +15,8 @@ app.use((req,res,next)=>{
     next();
 })
 
-app.use('/api/posts', postRoutes)
-app.use('/api/user', userRoutes)
+app.use('/posts', postRoutes)
+app.use('/user', userRoutes)
 
 mongoose.connect(MONGO_URI)
     .then(()=>{

@@ -34,6 +34,22 @@ const FriendsList = () => {
       following: 28,
       followers: 235
     },
+    {
+      id: 3,
+      name: 'Joe Sterie',
+      userId: 'joesteri456',
+      avatarUrl: 'https://example.com/jane_avatar.jpg',
+      following: 28,
+      followers: 235
+    },
+    {
+      id: 4,
+      name: 'Mike Peas',
+      userId: 'mikepead052',
+      avatarUrl: 'https://example.com/jane_avatar.jpg',
+      following: 28,
+      followers: 235
+    },
   ];
 
   return (

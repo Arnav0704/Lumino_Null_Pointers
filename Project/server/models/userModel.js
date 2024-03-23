@@ -38,11 +38,11 @@ const userSchema = new mongoose.Schema({
     },
     wallet: {
         type: String,
-        required: true
+        // required: true
     },
     streak: {
         type: Number,
-        default: 0
+        default: 1
     },
     password: {
         type: String,
@@ -55,8 +55,8 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-userSchema.statics.signup = async function (name, email, password, wallet, username) {
-    if (!email || !password || !name || !wallet) {
+userSchema.statics.signup = async function (name, email, password, username, referral) {
+    if (!email || !password || !name) {
         throw Error('All fields must be filled');
     }
     if (!validator.isEmail(email)) {
@@ -67,10 +67,16 @@ userSchema.statics.signup = async function (name, email, password, wallet, usern
     if (exists) {
         throw Error('Email already registered');
     }
-
+    
     if (!validator.isStrongPassword(password)) {
         throw Error('Password not strong enough');
     }
+    // const referrer = this.findOne({referralCode: referral});
+    // if(referrer){
+    //     console.log(referrer.name)
+    //     referrer.points += 10;
+    //     referrer.save();
+    // }
 
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
@@ -85,17 +91,17 @@ userSchema.statics.signup = async function (name, email, password, wallet, usern
             isUnique = true;
         }
     }
-    
-    const user = await this.create({ email, password: hash, name, referralCode, wallet, username });
+
+    const user = await this.create({ email, password: hash, name, referralCode, username });
     return user;
 };
 
-userSchema.statics.login = async function (email, password) {
-    if (!email || !password) {
+userSchema.statics.login = async function (username, password) {
+    if (!username || !password) {
         throw Error('All fields must be filled');
     }
 
-    const user = await this.findOne({ email });
+    const user = await this.findOne({ username });
 
     if (!user) {
         throw Error('User does not exist');
@@ -118,6 +124,7 @@ userSchema.statics.login = async function (email, password) {
 
         if (previousLoginDay === currentDay - 1) {
             user.streak++;
+
         } else if (previousLoginDay < currentDay) {
             user.streak = 1;
         }

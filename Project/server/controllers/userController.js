@@ -7,13 +7,17 @@ const createToken = (_id) => {
 }
 
 const loginUser = async (req, res) => {
-    const { email, password } = req.body
+    const { username, password } = req.body
     try {
-        const user = await User.login(email, password)
-
+        // console.log(req.body.username)
+        const user = await User.login(req.body.username, password)
+        if(!user){
+            res.status(404).json("User not found");
+        }
         const token = createToken(user._id);
+        const email = user.email, name = user.name, username = user.username, followers = user.followers, following = user.following, points = user.points, streak = user.streak, referralCode = user.referralCode;
 
-        res.status(200).json({ email, token })
+        res.status(200).json({ email, token, name, username, followers, following,points,streak,referralCode });
     }
     catch (err) {
         res.status(400).json({ error: err.message })
@@ -23,13 +27,12 @@ const loginUser = async (req, res) => {
 
 const signupUser = async (req, res) => {
 
-    const { name, email, password, wallet, username } = req.body
+    const { name, email, password,username, referral } = req.body
     try {
-        const user = await User.signup(name, email, password, wallet, username)
-
+        const user = await User.signup(name, email, password, username, referral)
         const token = createToken(user._id);
-
-        res.status(200).json({ email, token })
+        const followers = user.followers, following = user.following, points = user.points, streak = user.streak, referralCode = user.referralCode;
+        res.status(200).json({ name, email, token, username,followers,following,points, streak,referralCode });
     }
     catch (err) {
         res.status(400).json({ error: err.message })
