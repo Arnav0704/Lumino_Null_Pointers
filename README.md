@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://github.com/CommunityOfCoders/Inheritance-2023">
+  <a>
     <img src="https://i.imgur.com/rD5bSBK.png" alt="CoC Inheritance 2023" width="500" height="166">
   </a>
   <br>
