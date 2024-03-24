@@ -53,7 +53,7 @@
  
 ## 🔗Links    
 
-- [GitHub Repository](https://github.com/Arnav0704/Hack-X-Project)
+- [GitHub Repository](https://github.com/Arnav0704/Lumino_Null_Pointers)
 - [Logo](https://i.imgur.com/rD5bSBK.png)
 
 
