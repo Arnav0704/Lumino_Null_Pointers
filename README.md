@@ -11,7 +11,7 @@
     Lumino
    </strong> 
    - 
-    Introducing the concept of incentivising users based on engagement (likes, comments , referrals, daily logins, etc.) through Web3 technologies. In the age of Web3, user engagement is being redefined. The integration of blockchain technology allows for secure and transparent reward systems that can significantly enhance the user experience by rewarding them virtual points which are converted into native tokens. 
+    Introducing the concept of incentivising users based on engagement (likes, comments , referrals, daily logins, etc.) through Web3 technologies. In the age of Web3, user engagement is being redefined. The integration of blockchain technology allows for secure and transparent reward systems that can significantly enhance the user experience by rewarding them virtual points which are converted into our native token sparkz. 
 
 
   **Hackxcelerate && NULL Pointers** <br> <br>
@@ -164,5 +164,5 @@ npm start
 ## Future Scope
   - Implementing Sign Up and Log In without connecting the wallet to attract people that don't have any expereience in crypto and introducing them to crypto without overwhelming them.
   - Converting the posts into a NFT and selling that NFT on a market place.
-  - Create a trending page using various NLP and Machine Learing algorithms to analyze user preferneces and recomending them posts.
+  - Create a trending page using various NLP and Machine Learing algorithms to analyze user preferences and recomending them posts.
 
