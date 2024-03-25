@@ -85,20 +85,18 @@
 ### 🛠Project Setup && 💻Usage
   ## Clone the git repo
 ```bash
-git clone https://github.com/Arnav0704/Hack-X-Project.git
+https://github.com/Arnav0704/Lumino_Null_Pointers.git
 ```
   ## start frontend
 ```bash
-cd frontend
 npm i
 npm run dev
 ```
   ## start backend
 ```bash
-cd ..
 cd backend
 npm i
-npm start
+npm run dev
 ```
 ## Setup MongoDB URI
 
