@@ -94,7 +94,7 @@ npm run dev
 ```
   ## start backend
 ```bash
-cd backend
+cd server
 npm i
 npm run dev
 ```
