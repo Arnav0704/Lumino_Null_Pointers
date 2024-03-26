@@ -72,8 +72,8 @@ const Navbar = () => {
       </div>
       {
         user && 
-        <div className="flex items-center my-auto">
-            <div className="flex flex-col pr-2">
+        <div className="flex items-center my-auto gap-2">
+            <div className="flex flex-col pr-2 items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -88,7 +88,7 @@ const Navbar = () => {
               </svg>
               <span className="text-yellow-300 text-xs ml-1">{user.streak}</span>
             </div>
-              <div className="flex justify-self-auto flex-col pr-2">
+              <div className="flex justify-center flex-col pr-2">
                 <FaStar className="bg-orange-600 rounded-full w-full h-full p-1 shadow-lg transform hover:scale-200 transition duration-500" />
                 <span className="text-orange-600 text-xs ml-1">{user.points}</span>
               </div>

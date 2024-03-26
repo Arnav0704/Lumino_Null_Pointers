@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
-
+import { Button } from './ui/button';
 
 const CreatePost = () => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState('title');
+  const [content, setContent] = useState('content');
   const [showPriceInput, setShowPriceInput] = useState(false);
   const [price, setPrice] = useState('');
 
@@ -35,8 +35,8 @@ const CreatePost = () => {
     console.log('Price:', price);
 
     // Clear the input fields
-    setTitle('');
-    setContent('');
+    setTitle('title');
+    setContent('content');
     setPrice('');
   };
 
@@ -53,7 +53,7 @@ const CreatePost = () => {
               <Label htmlFor="content" className="text-white">CONTENT</Label>
               <Input id="content" type="text" className="bg-black"/>
         </div>
-        <div className="flex items-center mb-6">
+        <div className="flex items-center mb-6 justify-start">
           <label className="text-white my-1 mr-2" htmlFor="toggle">
             List For Sell
           </label>
@@ -65,11 +65,8 @@ const CreatePost = () => {
             onChange={handleToggleChange}
           />
           {showPriceInput && (
-            // <>
-            //   <Input id="price" type="text" className="bg-black appearance-none" defaultValue="Enter Price"/>
-            // </>
             <input
-              className="px-2 py-1 w-[63%] outline-none bg-black outline-1 outline-white  text-white rounded ml-2"
+              className="px-2 py-1 w-[63%] outline-none bg-black outline-1 outline-white  text-white rounded ml-auto"
               type="number"
               id="price"
               placeholder="Enter Price"
@@ -81,9 +78,9 @@ const CreatePost = () => {
             />
           )}
         </div>
-        <button className="bg-zinc-900 text-white px-4 py-2 rounded" type="submit">
+        <Button variant="outline" className="bg-zinc-900 text-white px-4 py-2 rounded-xl" type="submit">
           Create Post
-        </button>
+        </Button>
       </form>
     </div>
   );

@@ -28,20 +28,24 @@ const Posts = () => {
     {
       postId: 1,
       username: "user1",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      content: "Something Funny (Probably)",
       likes: ["user2", "user3"],
       comments: [
         {
-          userId: "user4",
-          content: "This is a comment from user4",
+          userId: "Arnav",
+          content: "XD",
         },
         {
-          userId: "user5",
-          content: "This is a comment from user5",
+          userId: "Paras",
+          content: "lmao",
         },
         {
-          userId: "user5",
-          content: "This is a comment from user5",
+          userId: "Puru",
+          content: "lol",
+        },
+        {
+          userId: "Tanmay",
+          content: "hahahhahhahhahhahhahhhahhhahha",
         },
       ],
       isSellable: false,
@@ -149,15 +153,23 @@ const Posts = () => {
                 {post.isSellable && (
                   <HoverCard>
                     <HoverCardTrigger>
-                    <div className='flex gap-4'>
-                      <div className="flex gap-2 items-center text-gray-400 cursor-pointer">
-                        <CiShoppingCart className="cursor-pointer" size={20} />
-                      </div>
+                      <div className='flex gap-4'>
+                        <div className="flex gap-2 items-center text-gray-400 cursor-pointer">
+                          <CiShoppingCart className="cursor-pointer" size={20} />
+                        </div>
                         <HoverCardContent>
                           <Card>
                             <CardHeader>
                               <CardTitle>Price: {post.price}</CardTitle>
                             </CardHeader>
+                            <CardContent>
+                              <CardDescription>Selling Options:</CardDescription>
+                              <ul>
+                                {post.buyOptions.map((option, index) => (
+                                  <li key={index}>{option}</li>
+                                ))}
+                              </ul>
+                            </CardContent>
                             <CardFooter>
                               <Button>Buy Now</Button>
                             </CardFooter>
@@ -170,42 +182,45 @@ const Posts = () => {
               </div>
             </div>
           ))}
-          {selectedPost && (
-            <div className="fixed inset-0 flex justify-center items-center z-10">
-              <div
-                className={`bg-black bg-opacity-50 absolute inset-0 ${selectedPost ? " filter backdrop-blur-sm backdrop" : ""}`}
-              ></div>
-              <ScrollArea className="h-[50%] w-[30%] rounded-md border flex justify-center items-center">
-                <div
-                  className="bg-black p-6 w-full relative overflow-y-auto flex flex-col justify-center items-center"
-                  ref={modalRef}
-                >
-                  <div className="mb-6">
-                    <h2 className="text-2xl font-bold text-white">{selectedPost.content}</h2>
-                    <h3 className="text-gray-600 mt-2">@{selectedPost.username}</h3>
+          
+            {selectedPost && (
+              <div className="fixed inset-0 flex justify-center items-center z-10">
+                <div className={`bg-black bg-opacity-50 absolute inset-0 ${selectedPost ? "filter backdrop-blur-sm backdrop" : ""}`}></div>
+                <ScrollArea className="h-[70%] w-[40%] rounded-md border flex justify-center items-center">
+                  <div className="bg-black p-6 w-full relative overflow-y-auto flex flex-col justify-center items-center" ref={modalRef}>
+                    <div className="mb-6 ml-4 flex flex-col justify-start w-full">
+                      <h2 className="text-2xl font-bold text-white">{selectedPost.content}</h2>
+                      <h3 className="text-gray-600 mt-2 underline font-bold">@{selectedPost.username}</h3>
+                    </div>
+                    <div className="mb-6 w-full rounded-lg border-2 border-solid vorder-white p-4">
+                      <h3 className="font-bold text-white">Comments</h3>
+                      <ul className="mt-2">
+                        {selectedPost.comments.map((comment, index) => (
+                          <li key={index} className="mb-4 w-full">
+                            <span className="my-2 flex gap-4 items-center font-bold text-white cursor-pointer underline">
+                              <Avatar>
+                                <AvatarImage src="https://github.com/shadcn.png" />
+                                <AvatarFallback>{comment.username}</AvatarFallback>
+                              </Avatar>
+                              @{comment.userId}
+                            </span>
+                            <p className="text-white w-full ml-14">{comment.content}</p>
+                            <Separator className="my-2" />
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <Button
+                      className="bg-transparent h-12 w-12 text-white rounded-full absolute top-1 right-1"
+                      onClick={handleModalClose}
+                    >
+                      <MdOutlineClose className='p-0 m-0' size={'40px'}/>
+                    </Button>
                   </div>
-                  <div className="mb-6 w-full">
-                    <h3 className="font-bold text-white">Comments</h3>
-                    <ul className="mt-2">
-                      {selectedPost.comments.map((comment, index) => (
-                        <li key={index} className="mb-4 w-full">
-                          <p className="text-gray-600 w-full">{comment.content}</p>
-                          <p className="text-gray-400 w-full">Comment by: {comment.userId}</p>
-                          <Separator className="my-2" />
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <Button
-                    className="bg-transparent h-12 w-12 text-white rounded-full  absolute top-1 right-1"
-                    onClick={handleModalClose}
-                  >
-                    <MdOutlineClose className='p-0 m-0' size={'40px'}/>
-                  </Button>
-                </div>
-              </ScrollArea>
-            </div>
-          )}
+                </ScrollArea>
+              </div>
+            )}
+
         </div>
       </div>
     </>
